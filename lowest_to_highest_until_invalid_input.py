@@ -6,3 +6,6 @@ while True:
         numbers.append(num)
     except ValueError:
         break  # Stop when invalid input is entered
+
+numbers.sort()  # Sorts the list in ascending order
+print("Sorted numbers:", numbers)
