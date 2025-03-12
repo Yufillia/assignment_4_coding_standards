@@ -1,5 +1,4 @@
 # Find the Most Frequent Number
-
 numbers = []
 
 while True:
@@ -10,13 +9,20 @@ while True:
         break  # Stop when user enters an invalid input
 
 if numbers:
-    # Manually count occurrences instead of using Counter
+    # Manually count occurrences
     frequency = {}
     for num in numbers:
         frequency[num] = frequency.get(num, 0) + 1
 
-    # Find the number with the highest occurrence
-    most_frequent = max(frequency, key=frequency.get)
-    print(f"The number {most_frequent} appeared the most times ({frequency[most_frequent]} times).")
+    # Find the highest occurrence count
+    max_count = max(frequency.values())
+
+    # If all numbers appear only once, there's no most frequent number
+    if max_count == 1:
+        print("No frequent number (all numbers are unique).")
+    else:
+        # Find the number(s) that appeared the most times
+        most_frequent = [num for num, count in frequency.items() if count == max_count]
+        print(f"The most frequent number(s): {most_frequent} (appeared {max_count} times).")
 else:
     print("No numbers entered.")
